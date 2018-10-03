@@ -10,9 +10,9 @@ struct footballPlayer {
 };
 
 int main () {
-	srand(time(NULL));
+    srand(time(NULL));
 
-	// TEST #1
+    // TEST #1
     formatPrint("RANDOM FOOTBALL PLAYER");
     struct footballPlayer randomPlayer = getRandomFootBallPlayer();
     printPlayer(randomPlayer);
