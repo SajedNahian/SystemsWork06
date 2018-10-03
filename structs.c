@@ -4,9 +4,9 @@
 #include "footballplayer.h"
 
 struct footballPlayer {
-  char name[20];
-  int weight;
-  int height;
+    char name[20];
+    int weight;
+    int height;
 };
 
 int main () {
@@ -39,9 +39,27 @@ int main () {
 
 struct footballPlayer getRandomFootBallPlayer () {
     struct footballPlayer randomPlayer;
-    strcpy(randomPlayer.name, "John Doe");
-    randomPlayer.weight = rand() % (280 + 1 - 120) + 120; 
-    randomPlayer.height = rand() % (84 + 1 - 60) + 60;
+    //Assign random name
+    int numberOfFirstNames = 6;
+    int numberOfLastNames = 7;
+    char * firstNames[] = {"James", "Mark", "Steven", "John", "Jack", "James"};
+    char * lastNames[] = {"Smith", "Johnson", "Brown", "Miller", "Williams", "Davis", "Wilson"};
+    char randomName[20];
+    strcpy(randomName, firstNames[rand() % (numberOfFirstNames)]);
+    strcat(randomName, " ");
+    strcat(randomName, lastNames[rand() % (numberOfLastNames)]);
+    strcpy(randomPlayer.name, randomName);
+
+    //Assign random weight
+    int minWeight = 120;
+    int maxWeight = 280;
+    randomPlayer.weight = rand() % (maxWeight + 1 - minWeight) + minWeight;
+
+    //Assign random height
+    int minHeight = 60;
+    int maxHeight = 84; 
+    randomPlayer.height = rand() % (maxHeight + 1 - minHeight) + minHeight;
+
     return randomPlayer;
 }
 
